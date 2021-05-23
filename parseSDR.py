@@ -1,9 +1,20 @@
-file = open('total_station.sdr', 'r')
+class Parser:
+    """
+    Парсер SDR33-файла
+    """
+    def __init__(self, survey):
+        """Constructor"""
+        self.survey = survey
 
-while True:
-    line = file.readline()
-    if not line:
-        break
-    print(line)
+    def parseSDR(self, file):
+        with open(file, 'r') as sdr:
+            self.sdrLines = sdr.readlines()
+    
+    def print(self):
+        print(self.sdrLines)
 
-file.close()
+
+if __name__ == "__main__":
+    parser = Parser('survey')
+    parser.parseSDR('total_station.sdr')
+    parser.print()
