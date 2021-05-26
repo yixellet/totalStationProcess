@@ -1,6 +1,6 @@
 class Station:
     """
-    Съёмочная станция.
+    Съёмочная станция
     """
     def __init__(self, name, height, orientation):
         self.name = name
