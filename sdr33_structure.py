@@ -26,3 +26,41 @@ units = {
         '2': 'right'
     }
 }
+
+options = {
+    'pidType': {
+        '1': 14
+    },
+    'inclElev': {
+        '1': 'No',
+        '2': 'Yes'
+    },
+    'atmCor': {
+        '1': 'No',
+        '2': 'Yes'
+    },
+    'crCor': {
+        '1': 'No',
+        '2': 'Yes'
+    },
+    'refrConst': {
+        '1': 0.14,
+        '2': 0.20
+    },
+    'seaLevCor': {
+        '1': 'No',
+        '2': 'Yes'
+    }
+}
+
+instrOpts = {
+    'mountType': {
+        '1': 'Telescope',
+        '2': 'Standards',
+        '3': 'Not Applic'
+    },
+    'vangleOpt': {
+        '1': 'Zenith',
+        '2': 'Horiz'
+    }
+}
