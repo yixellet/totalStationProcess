@@ -4,9 +4,10 @@ class Observation:
     """
     Наблюдение при тахеометрической съемке
     """
-    def __init__(self, name, slopeDist, vertAngle, horAngle, height, note):
+    def __init__(self, face, name, slopeDist, vertAngle, horAngle, height, note):
         """Constructor"""
         self.name = name
+        self.face = face
         self.slopeDist = slopeDist
         self.vertAngle = vertAngle
         self.horAngle = horAngle
