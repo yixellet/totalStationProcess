@@ -28,7 +28,15 @@ class Station:
         self.orientation['vObs'] = vObs,
         self.orientation['face'] = face
     
-    def addObservation(self, observation):
+    def addObservation(self, targetName, face, slopeDist, vObs, horObs, desc):
+        observation = {
+            'targetName': targetName,
+            'face': face,
+            'slopeDist': slopeDist,
+            'vObs': vObs,
+            'horObs': horObs,
+            'desc': desc
+        }
         self.observations.append(observation)
     
     def print(self):

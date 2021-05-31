@@ -29,6 +29,8 @@ def createStation(name, north, east, elev, height, note):
 def addOrientation(station, targetName, azimuth, horObs):
     survey.addOrientation(station, targetName, azimuth, horObs)
 
+def addObservation(station, target, slopeDist, vObs, horObs, face, desc):
+    survey.addObservation(station, target, slopeDist, vObs, horObs, face, desc)
 
 def createObservation(name, slopeDist, vertAngle, horAngle, height, note):
     return Observation(name, slopeDist, vertAngle, horAngle, height, note)
@@ -38,7 +40,8 @@ parser.parseSDR(defineSurveyParams,
                 defineSurveyJob,
                 defineInstrument,
                 createStation,
-                addOrientation)
+                addOrientation,
+                addObservation)
 
 
 survey.print()

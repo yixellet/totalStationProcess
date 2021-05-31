@@ -19,7 +19,8 @@ class Parser:
         defineJobFunction, 
         defineInstrumentFunction,
         createStationFunction,
-        addOrientationFunction):
+        addOrientationFunction,
+        addObservationFunction):
         """Парсит строки из массива и 
         создает экземпляры классов Survey, Station и Observation"""
         for line in self.sdrLines:
@@ -64,16 +65,24 @@ class Parser:
                     float(line[36:52].strip()) if line[36:52].strip() else None,
                     float(line[52:68].strip()) if line[52:68].strip() else None,
                     float(line[68:84].strip()) if line[68:84].strip() else None,
-                    line[84:100].strip(),
+                    line[84:100].strip()
                 )
             elif line[:2] == '07':
                 addOrientationFunction(
                     line[4:20].strip(),
                     line[20:36].strip(),
                     float(line[36:52].strip()) if line[36:52].strip() else None,
-                    float(line[52:68].strip()) if line[52:68].strip() else None,
+                    float(line[52:68].strip()) if line[52:68].strip() else None
                 )
             elif line[:2] == '03':
                 self.targetHeight = float(line[4:20].strip())
             elif line[:2] == '09':
-                pass
+                addObservationFunction(
+                    line[4:20].strip(),
+                    line[20:36].strip(),
+                    float(line[36:52].strip()) if line[36:52].strip() else None,
+                    float(line[52:68].strip()) if line[52:68].strip() else None,
+                    float(line[68:84].strip()) if line[68:84].strip() else None,
+                    line[2:4],
+                    line[84:100].strip()
+                )

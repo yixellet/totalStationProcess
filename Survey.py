@@ -57,7 +57,16 @@ class Survey:
         for station in self.stations:
             if station.name == stationName:
                 station.defineOrientation(targetName, azimuth, horObs)
+
+    def addObservation(self, stationName, targetName, slopeDist, vObs, horObs, face, desc):
+        for station in self.stations:
+            if station.name == stationName:
+                if station.orientation['targetName'] == targetName:
+                    station.correctOrientation(vObs, horObs, face)
+                station.addObservation(targetName, face, slopeDist, vObs, horObs, desc)
     
     def print(self):
         for i in self.stations:
-            print(i.name, i.orientation)
+            print(i.name)
+            for obs in i.observations:
+                print(obs)
